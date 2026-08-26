@@ -48,7 +48,7 @@ update_data = load_json(
     UPDATE_FILE,
     {
         "version": 1,
-        "updated": false,
+        "updated": False,
         "message": "",
         "time": ""
     }
