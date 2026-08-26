@@ -1,0 +1,38 @@
+name: Check Profiles Updates
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check-profiles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download profiles
+        run: |
+          curl -s "https://noads.hninisiimoo.workers.dev/" > noads.txt
+          curl -s "https://stable.hninisiimoo.workers.dev/" > stable.txt
+          curl -s "https://gamings.hninisiimoo.workers.dev/" > gaming.txt
+          curl -s "https://rapid-king-8ee0.hninisiimoo.workers.dev/" > other.txt
+
+      - name: Check changes
+        run: python3 check_update.py
+
+      - name: Commit updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add update.json profiles_hash.json
+
+          git diff --cached --quiet || git commit -m "Update profiles version"
+
+          git push
