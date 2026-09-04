@@ -1,6 +1,6 @@
 {
   "version": 123,
-  "updated": true,
-  "message": "New configs update available",
+  "updated": false,
+  "message": "No updates",
   "time": "2026-09-04T17:12:26.693724+00:00"
 }
