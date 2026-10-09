@@ -1,8 +1,8 @@
 {
-  "version": 330,
-  "updated": false,
-  "message": "No updates",
-  "time": "2026-10-09T13:55:24.092435+00:00",
+  "version": 331,
+  "updated": true,
+  "message": "New configs update available",
+  "time": "2026-10-09T23:21:12.990813+00:00",
   "versionapk": 21,
   "updatedapk": true,
   "messageapk": "New app update available"
